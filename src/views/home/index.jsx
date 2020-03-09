@@ -1,9 +1,9 @@
 import React from 'react'
 import './index.less'
 
-function Home(){
+const Home = () => {
   return (
-      <div class="home">123123</div>
+      <div className="home">home</div>
   )
 }
 
