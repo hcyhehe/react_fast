@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ComLi from '../../components/comLi'
 import './index.less'
 
-class List extends Component {
+class Input extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -64,4 +64,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default Input
