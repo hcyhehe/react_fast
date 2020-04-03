@@ -1,0 +1,7 @@
+.eds-ui-radio-horizontal{
+  display: flex;
+}
+
+.eds-ui-radio-horizontal div{
+  margin-right: 10px;
+}
