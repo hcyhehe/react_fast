@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import ComLi from '../../components/comLi'
 import './index.less'
 
-class List extends Component {
+class Input extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -21,21 +22,23 @@ class List extends Component {
           <button onClick={this.handleInputAdd}>Submit</button>
         </div>
         <ul>
-          {
-            this.state.list.map((item, index) => {
-              return(
-                <li 
-                  key={index} 
-                  onClick={this.handleLiRemove.bind(this, index)}
-                >
-                  {item}
-                </li>
-              )
-            })
-          }
+          { this.getList() }
         </ul>
       </div>
     )
+  }
+
+  getList(){
+    return this.state.list.map((item, index) => {
+      return(
+        <ComLi 
+          key={index} 
+          index={index} 
+          content={item}
+          deleteItem={this.handleLiRemove.bind(this)}
+        />
+      )
+    })
   }
 
   handleInputChange(e){
@@ -53,8 +56,12 @@ class List extends Component {
   }
 
   handleLiRemove(index){
-    console.log('index:'+index)
+    this.setState((prevState) => {
+      const list = [...prevState.list]
+      list.splice(index, 1)
+      return { list }
+    })
   }
 }
 
-export default List
+export default Input
